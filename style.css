@@ -1,0 +1,19 @@
+.m-l{
+    margin-left: 10px;
+}
+.footer_block{
+    display: flex;
+    justify-content: space-around
+}
+body{
+    display: flex;
+    flex-direction: column;
+}
+header{
+    position: fixed;
+    width: 100%;
+}
+main{
+    margin-top: 55px;
+    height: 400px;
+}
