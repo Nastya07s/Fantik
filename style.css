@@ -21,6 +21,10 @@ main{
     margin-left: 10px;
     margin-right: 10px;
 }
+.dl-m-l-r{
+    margin-left: 0 px;
+    margin-bottom: 0px;
+}
 .title_list{
     font-size: 20px;
     margin-left: 13px;
