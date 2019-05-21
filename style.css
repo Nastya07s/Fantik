@@ -17,3 +17,13 @@ main{
     margin-top: 55px;
     height: 400px;
 }
+.m-l-r{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.title_list{
+    font-size: 20px;
+    margin-left: 13px;
+    margin-bottom: 1px;
+    text-decoration: underline;;
+}
