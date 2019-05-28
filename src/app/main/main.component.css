@@ -1,0 +1,18 @@
+.m-l-r{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.dl-m-l-r{
+  margin-left: 0px;
+  margin-bottom: 0px;
+  display: flex;
+}
+.title_list{
+  font-size: 20px;
+  margin-left: 13px;
+  margin-bottom: 1px;
+  text-decoration: underline;;
+}
+.name-article{
+  font-size: 18.5px;
+}
