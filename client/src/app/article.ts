@@ -1,4 +1,4 @@
-export class article {
+export class Article {
   name: String;
   author: String;
   createDate: Date;
