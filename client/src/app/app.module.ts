@@ -8,13 +8,15 @@ import { MainComponent } from './main/main.component';
 import { ChapterComponent } from './chapter/chapter.component';
 import { ArticleComponent } from './article/article.component';
 import {AppRoutingModule} from "./app-routing.module";
+import { SortPipe } from './pipes/sort.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
     ChapterComponent,
-    ArticleComponent
+    ArticleComponent,
+    SortPipe,
   ],
   imports: [
     BrowserModule,

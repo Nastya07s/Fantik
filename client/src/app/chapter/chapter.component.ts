@@ -1,7 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {Observable} from "rxjs";
-import {Article} from "../article";
-import {ArticleService} from "../article/article.service";
 
 @Component({
   selector: 'app-chapter',
@@ -10,13 +7,10 @@ import {ArticleService} from "../article/article.service";
 })
 export class ChapterComponent implements OnInit {
 
-  articles: Observable<Article[]>;
-
-  constructor(private as: ArticleService) {
+  constructor() {
   }
 
   ngOnInit() {
-    this.articles = this.as.getArticle();
   }
 
 }
