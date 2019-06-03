@@ -5,18 +5,20 @@ import {HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
-import { ChapterComponent } from './chapter/chapter.component';
-import { ArticleComponent } from './article/article.component';
+import { ChaptersComponent } from './chapters/chapters.component';
 import {AppRoutingModule} from "./app-routing.module";
 import { SortPipe } from './pipes/sort.pipe';
+import { SlicePipe } from './pipes/slice.pipe';
+import { ChapterComponent } from './chapter/chapter.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
-    ChapterComponent,
-    ArticleComponent,
+    ChaptersComponent,
     SortPipe,
+    SlicePipe,
+    ChapterComponent,
   ],
   imports: [
     BrowserModule,

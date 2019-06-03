@@ -1,10 +1,6 @@
 const mongoose = require('mongoose');
-let user = require('../models/user');
-// require('mongoose-double')(mongoose);
 const Schema = mongoose.Schema;
 
-// var SchemaTypes = mongoose.Schema.Types;
-// Define collection and schema for article
 const articleSchema = new Schema({
     name: {
         type: String
@@ -12,6 +8,9 @@ const articleSchema = new Schema({
     author: {
         ref: 'users',
         type: Schema.Types.ObjectId
+    },
+    description:{
+        type: String
     },
     createDate: {
         type: Date
@@ -22,11 +21,17 @@ const articleSchema = new Schema({
     rating: {
         type: Number
     },
-    chapters: {
-        type: Number
-    },
+    chapters: [{
+        img: {
+            type: String
+        },
+        text: {
+            type: String
+        }
+    }],
     genre: {
-        type: String
+        ref: 'genres',
+        type: Schema.Types.ObjectId
     }
 }, {
     collection: 'articles'

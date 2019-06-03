@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Observable} from "rxjs";
 import {Article} from "../article";
-import {ArticleService} from "../article/article.service";
+import {MainService} from "./main.service";
 
 @Component({
   selector: 'app-main',
@@ -10,9 +9,9 @@ import {ArticleService} from "../article/article.service";
 })
 export class MainComponent implements OnInit {
 
-  articles: Article[];
+  public articles: Article[];
 
-  constructor(private as: ArticleService) {
+  constructor(private as: MainService) {
   }
 
   ngOnInit() {

@@ -1,0 +1,7 @@
+<div class="m-l-r">
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let chapter of chapters; let i = index">
+      <a href="/{{chapter.name}}/{{chapter.name}}">Глава {{i+1}} - {{chapter.name}}</a>
+    </li>
+  </ul>
+</div>

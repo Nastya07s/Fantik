@@ -2,14 +2,14 @@
   <p class="font-weight-bold font-italic title_list"> Popular:</p>
   <div class="list-group-item" *ngFor="let article of articles">
     <div class="d-flex w-100 justify-content-between">
-      <a href="/name" class="mb-1 name-article">{{article.name}}</a>
+      <a href="/{{article._id}}" class="mb-1 name-article">{{article.name}}</a>
     </div>
     <dl class="dl-m-l-r">
-      <dt>Genre:</dt>
-      <dd><a href='#'>{{article.genre}}</a>, Action, Horror</dd>
+      <dt>Genre: </dt>
+      <dd><a href='#'> {{article.genre.name}}</a></dd>
     </dl>
-    <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-    <small>Author: {{article.author.username}}</small>
+    <p class="mb-1">{{article.description}}</p>
+    <small>Author: <a href="#">{{article.author.username}}</a></small>
   </div>
 <!--  <div class="list-group-item">-->
 <!--    <div class="d-flex w-100 justify-content-between">-->
@@ -50,9 +50,9 @@
     </div>
     <dl class="dl-m-l-r">
       <dt>Genre:</dt>
-      <dd><a href='#'>{{article.genre}}</a>, Action, Horror</dd>
+      <dd><a href='#'>{{article.genre.name}}</a></dd>
     </dl>
-    <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+    <p class="mb-1">{{article.description}}</p>
     <small>Author: {{article.author.username}}</small>
   </div>
 <!--  <div class="list-group-item">-->
