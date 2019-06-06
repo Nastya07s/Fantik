@@ -38,4 +38,16 @@ export class MainService {
   getChapter(chapterId: Number){
     return this.article.chapters[chapterId.toString()];
   }
+
+  getGenres(){
+    return this
+      .http
+      .get(`${this.uri}`+"/genres");
+  }
+
+  getAuthors(){
+    return this
+      .http
+      .get(`${this.uri}`+"/authors");
+  }
 }

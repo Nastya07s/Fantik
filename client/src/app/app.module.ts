@@ -10,6 +10,8 @@ import {AppRoutingModule} from "./app-routing.module";
 import { SortPipe } from './pipes/sort.pipe';
 import { SlicePipe } from './pipes/slice.pipe';
 import { ChapterComponent } from './chapter/chapter.component';
+import { GenresComponent } from './genres/genres.component';
+import { AuthorsComponent } from './authors/authors.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { ChapterComponent } from './chapter/chapter.component';
     SortPipe,
     SlicePipe,
     ChapterComponent,
+    GenresComponent,
+    AuthorsComponent,
   ],
   imports: [
     BrowserModule,
