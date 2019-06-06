@@ -5,8 +5,8 @@ import {ChaptersComponent} from "./chapters/chapters.component";
 import {ChapterComponent} from "./chapter/chapter.component";
 
 const routes = [
-  {path: ':id/:id', component: ChapterComponent},
-  {path: ':id', component: ChaptersComponent},
+  {path: ':articleId/:chapterId', component: ChapterComponent},
+  {path: ':articleId', component: ChaptersComponent},
   {path: '', component: MainComponent}
 ];
 

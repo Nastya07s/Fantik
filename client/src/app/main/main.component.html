@@ -2,7 +2,7 @@
   <p class="font-weight-bold font-italic title_list"> Popular:</p>
   <div class="list-group-item" *ngFor="let article of articles">
     <div class="d-flex w-100 justify-content-between">
-      <a href="/{{article._id}}" class="mb-1 name-article">{{article.name}}</a>
+      <a [routerLink]="['/',article._id]" class="mb-1 name-article">{{article.name}}</a>
     </div>
     <dl class="dl-m-l-r">
       <dt>Genre: </dt>

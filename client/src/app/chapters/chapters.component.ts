@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {Article} from "../article";
-import {MainService} from "../main/main.service";
-import {ActivatedRoute} from "@angular/router";
+import {Article} from "../models/article";
+import {MainService} from "../services/main.service";
+import {ActivatedRoute, ActivatedRouteSnapshot} from "@angular/router";
+import {Chapter} from "../models/Chapter";
 
 @Component({
   selector: 'app-chapter',
@@ -10,17 +11,20 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class ChaptersComponent implements OnInit {
 
-  name: String;
+  article: Article;
+  chapters: Chapter[];
 
-  chapters: Object;
-
-  constructor(private as: MainService,private activeRoute:ActivatedRoute) {
+  constructor(private ms: MainService,private activeRoute:ActivatedRoute ) {
   }
 
   ngOnInit() {
-    // this.name =  this.as.name;
-    this.as.getChapters(this.activeRoute.snapshot['_routerState'].url)
-      .subscribe((data:Article)=>this.chapters = data.chapters);
+    this.ms.getArticle(this.activeRoute.snapshot.params.articleId)
+      .subscribe((data:Article)=>{
+        this.chapters = data.chapters;
+        this.article = data;
+        this.ms.setArticle(this.article);
+      });
+
   }
 
 }

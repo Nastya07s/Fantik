@@ -15,7 +15,7 @@ module.exports.viewAll = function (req, res) {
 };
 
 module.exports.chaptersView = function (req, res) {
-    article.findOne({"_id": req.params.id}, function (err, doc) {
+    article.findOne({"_id": req.params.articleId}, function (err, doc) {
         if (err) {
             console.log(err);
         } else {

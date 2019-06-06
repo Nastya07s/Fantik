@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Article} from "../article";
-import {MainService} from "./main.service";
+import {Article} from "../models/article";
+import {MainService} from "../services/main.service";
 
 @Component({
   selector: 'app-main',
@@ -11,11 +11,11 @@ export class MainComponent implements OnInit {
 
   public articles: Article[];
 
-  constructor(private as: MainService) {
+  constructor(private ms: MainService) {
   }
 
   ngOnInit() {
-    this.as.getArticles().subscribe((data:Article[])=>this.articles = data);
+    this.ms.getArticles().subscribe((data:Article[])=>this.articles = data);
   }
 
 }
