@@ -1,0 +1,17 @@
+<div class="container">
+  <p>My articles
+    <button class="flex" (click)="redirectToCreate()">New article</button>
+  </p>
+  <div class=" card" *ngFor="let article of articles">
+    <div class="card-body">
+      <h5 class="card-title"><a>{{article.name}}</a></h5>
+      <p class="card-text">
+        <small class="text-muted"><a>Last update: {{article.updateDate}}</a></small>
+      </p>
+      <p class="card-text">
+        <small class="text-muted"><a>Created: {{article.createDate}}</a></small>
+      </p>
+
+    </div>
+  </div>
+</div>

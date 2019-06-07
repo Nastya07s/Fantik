@@ -11,7 +11,9 @@ import { SortPipe } from './pipes/sort.pipe';
 import { SlicePipe } from './pipes/slice.pipe';
 import { ChapterComponent } from './chapter/chapter.component';
 import { GenresComponent } from './genres/genres.component';
-import { AuthorsComponent } from './authors/authors.component';
+import { UserPageComponent } from './user-page/user-page.component';
+import { MyArticlesComponent } from './my-articles/my-articles.component';
+import { EditComponent } from './edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { AuthorsComponent } from './authors/authors.component';
     SlicePipe,
     ChapterComponent,
     GenresComponent,
-    AuthorsComponent,
+    UserPageComponent,
+    MyArticlesComponent,
+    EditComponent,
   ],
   imports: [
     BrowserModule,
