@@ -6,11 +6,17 @@ import {ChapterComponent} from "./chapter/chapter.component";
 import {GenresComponent} from "./genres/genres.component";
 import {MyArticlesComponent} from "./my-articles/my-articles.component";
 import {EditComponent} from "./edit/edit.component";
+import {RegisterComponent} from "./register/register.component";
+import {LoginComponent} from "./login/login.component";
+import {UserPageComponent} from "./user-page/user-page.component";
 
 const routes = [
   {path: 'myArticles/:userId/edit', component: EditComponent},
   {path: 'myArticles/:userId', component: MyArticlesComponent},
   {path: ':articleId/:chapterId', component: ChapterComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'userpage', component: UserPageComponent},
+  {path: 'register', component: RegisterComponent},
   {path: 'genres', component: GenresComponent},
   {path: ':articleId', component: ChaptersComponent},
   {path: '', component: MainComponent}

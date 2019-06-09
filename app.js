@@ -17,6 +17,7 @@ mongoose.connect(keys.mongoURI, {useNewUrlParser: true}).then(
   }
 );
 
+const userRouter = require('./routes/user');
 const myArticlesRouter = require('./routes/myArticles');
 const genreRouter = require('./routes/genre');
 const articleRouter = require('./routes/article');
@@ -28,6 +29,7 @@ app.use(bodyParser.json());
 app.use(cors());
 
 
+app.use('/api/user', userRouter);
 app.use('/api/myArticles', myArticlesRouter);
 app.use('/api/genres', genreRouter);
 app.use('/api/auth', authRoutes);

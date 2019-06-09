@@ -7,16 +7,16 @@ const errorHandler = require('../utils/errorHandler');
 
 module.exports.login = async function (req, res) {
 
-  const candidate = await User.findOne({email: req.body.email});
+  const candidate = await User.findOne({username: req.body.username});
 
   if (candidate) {
 
-    const passResult = bcrypt.compareSync(req.body.pass,candidate.pass);
+    const passResult = bcrypt.compareSync(req.body.password,candidate.password);
 
     if (passResult){
       //В sign ложим те значения которые хотим знать у пользователя, второй параметр секретный ключ, третий время жизни токена
       const token = jwt.sign({
-        email: candidate.email,
+        username: candidate.username,
         userId: candidate._id
       },keys.jwt,{expiresIn: 60*60});//время жизни час
 
@@ -47,11 +47,11 @@ module.exports.register = async function (req, res) {
     })
   } else {
     const salt = bcrypt.genSaltSync(10);
-    const pass = req.body.pass;
+    const password= req.body.password;
     const user = new User({
       username: req.body.username,
       email: req.body.email,
-      pass: bcrypt.hashSync(pass, salt)
+      password: bcrypt.hashSync(password, salt)
     });
 
     try {

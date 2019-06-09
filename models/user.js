@@ -9,7 +9,7 @@ let userSchema = new Schema({
     type: String,
     unique: true
   },
-  pass: {
+  password: {
     type: String
   }
 },{
