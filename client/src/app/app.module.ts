@@ -17,6 +17,7 @@ import {MyArticlesComponent} from './my-articles/my-articles.component';
 import {EditComponent} from './edit/edit.component';
 import {RegisterComponent} from './register/register.component';
 import {LoginComponent} from './login/login.component';
+import {MustMatch} from './mustMatch'
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import {LoginComponent} from './login/login.component';
     EditComponent,
     RegisterComponent,
     LoginComponent,
+    // MustMatch,
   ],
   imports: [
     BrowserModule,
