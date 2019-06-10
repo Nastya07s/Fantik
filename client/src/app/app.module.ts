@@ -17,7 +17,8 @@ import {MyArticlesComponent} from './my-articles/my-articles.component';
 import {EditComponent} from './edit/edit.component';
 import {RegisterComponent} from './register/register.component';
 import {LoginComponent} from './login/login.component';
-import {MustMatch} from './mustMatch'
+import {MustMatch} from './mustMatch';
+import { ConfirmedEmailComponent } from './confirmed-email/confirmed-email.component'
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import {MustMatch} from './mustMatch'
     EditComponent,
     RegisterComponent,
     LoginComponent,
+    ConfirmedEmailComponent,
     // MustMatch,
   ],
   imports: [

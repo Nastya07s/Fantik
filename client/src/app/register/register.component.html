@@ -96,12 +96,8 @@
             Enter confirmPassword
           </span>
           <span
-            *ngIf="form.get('confirmPassword').hasError('minlength') ">
-            confirmPassword must be more than 1 characters
-          </span>
-          <span
-            *ngIf="form.get('confirmPassword').errors['mustMatch'] || form.get('password').errors['mustMatch']">
-            confirmPassword must be more than 1 characters
+            *ngIf="form.controls.confirmPassword.errors.mustMatch">
+            Passwords must match
           </span>
         </span>
       </div>

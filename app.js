@@ -1,21 +1,45 @@
 const express = require('express'),
-  path = require('path'),
-  bodyParser = require('body-parser'),
-  cors = require('cors'),
-  mongoose = require('mongoose');
+    path = require('path'),
+    bodyParser = require('body-parser'),
+    cors = require('cors'),
+    mongoose = require('mongoose');
 const keys = require('./config/keys');
 const morgan = require('morgan');
 const app = express();
+const nodemailer = require('nodemailer');
+const jwt = require('jsonwebtoken');
+const user = require('./models/user');
 
 mongoose.Promise = global.Promise;
 mongoose.connect(keys.mongoURI, {useNewUrlParser: true}).then(
-  () => {
-    console.log('Database is connected')
-  },
-  err => {
-    console.log('Can not connect to the database' + err)
-  }
+    () => {
+        console.log('Database is connected')
+    },
+    err => {
+        console.log('Can not connect to the database' + err)
+    }
 );
+
+module.exports.transporter = nodemailer.createTransport({
+    service: 'GMail',
+    auth: {
+        user: 'typist0797@gmail.com',
+        pass: '12345678a9',
+    },
+});
+
+app.get('/confirmation/:token', async (req, res) => {
+    try {
+        const user1 = jwt.verify(req.params.token, keys.jwt);
+        await user.findOneAndUpdate({username: user1.username}, {confirmed: true});
+        return res.redirect('http://localhost:4200/confirmation/`${req.params.token}`');
+    } catch
+        (e) {
+        console.log(e);
+        res.send(e);
+    }
+
+});
 
 const userRouter = require('./routes/user');
 const myArticlesRouter = require('./routes/myArticles');

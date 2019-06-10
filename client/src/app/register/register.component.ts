@@ -1,5 +1,5 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {FormControl,FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../services/auth.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Subscription} from "rxjs";
@@ -19,17 +19,20 @@ export class RegisterComponent implements OnInit, OnDestroy {
 
   constructor(private authService: AuthService,
               private router: Router,
-              private activeRoute: ActivatedRoute) {
+              private activeRoute: ActivatedRoute,
+              private formBuilder: FormBuilder) {
   }
 
   ngOnInit() {
-
-    this.form = new FormGroup({
+    this.form = this.formBuilder.group({
       username: new FormControl(null, [Validators.required]),
       email: new FormControl(null,[Validators.required,Validators.email]),
       password: new FormControl(null,
         [Validators.required,Validators.minLength(1)]),
-      confirmPassword: new FormControl(null, [Validators.required,Validators.minLength(1),MustMatch(password,confirmPassword)]),
+      confirmPassword: new FormControl(null,
+        [Validators.required]),
+    },{
+      validator: MustMatch('password','confirmPassword')
     });
   }
 
@@ -52,10 +55,10 @@ export class RegisterComponent implements OnInit, OnDestroy {
         });
       },
       error => {
+        alert(error.error.message);
         console.warn(error);
         this.form.enable();
-      });
-    console.log('Success');
+      },);
   };
 }
 

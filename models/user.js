@@ -9,6 +9,10 @@ let userSchema = new Schema({
     type: String,
     unique: true
   },
+  confirmed: {
+    type: Boolean,
+    default: false
+  },
   password: {
     type: String
   }
