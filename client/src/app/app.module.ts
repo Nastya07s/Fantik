@@ -1,7 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 import {AppComponent} from './app.component';
@@ -19,6 +19,7 @@ import {RegisterComponent} from './register/register.component';
 import {LoginComponent} from './login/login.component';
 import {MustMatch} from './mustMatch';
 import { ConfirmedEmailComponent } from './confirmed-email/confirmed-email.component'
+import {TokenInterceptor} from "./classes/token.interceptor";
 
 
 @NgModule({
@@ -45,7 +46,11 @@ import { ConfirmedEmailComponent } from './confirmed-email/confirmed-email.compo
     ReactiveFormsModule,
     FormsModule,
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    multi: true,
+    useClass: TokenInterceptor
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule {

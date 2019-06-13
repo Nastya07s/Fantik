@@ -10,14 +10,16 @@ import {RegisterComponent} from "./register/register.component";
 import {LoginComponent} from "./login/login.component";
 import {UserPageComponent} from "./user-page/user-page.component";
 import {ConfirmedEmailComponent} from "./confirmed-email/confirmed-email.component";
+import {AuthGuard} from "./classes/auth.guard";
 
 const routes = [
-  {path: 'myArticles/:userId/edit', component: EditComponent},
-  {path: 'myArticles/:userId', component: MyArticlesComponent},
+  // {path: 'myArticles/:userId/edit', component: EditComponent},
   {path: 'confirmation/:emailToken', component: ConfirmedEmailComponent},
   {path: ':articleId/:chapterId', component: ChapterComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'userpage', component: UserPageComponent},
+  {path: 'user', component: UserPageComponent, canActivate: [AuthGuard], children:[
+      {path: 'myArticles', component: MyArticlesComponent},
+    ]},
   {path: 'register', component: RegisterComponent},
   {path: 'genres', component: GenresComponent},
   {path: ':articleId', component: ChaptersComponent},

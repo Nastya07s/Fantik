@@ -21,7 +21,8 @@ module.exports.login = async function (req, res) {
             if (candidate.confirmed) {
                 const token = jwt.sign({
                     username: candidate.username,
-                    userId: candidate._id
+                    userId: candidate._id,
+                    confirmed: candidate.confirmed,
                 }, keys.jwt, {expiresIn: 60 * 60});//время жизни час
 
                 res.status(200).json({

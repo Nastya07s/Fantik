@@ -21,8 +21,14 @@
       <form class="form-inline my-2 my-lg-0">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0 m-l" type="submit">Search</button>
-        <button routerLink="/login" class="btn btn-primary m-l" type="submit">Sign in</button>
-        <button routerLink="/register" class="btn btn-primary m-l" type="submit">Sign up</button>
+        <div *ngIf="!isAuthenticated; else LoggedIn">
+          <button routerLink="/login" class="btn btn-primary m-l" type="submit">Sign in</button>
+          <button routerLink="/register" class="btn btn-primary m-l" type="submit">Sign up</button>
+        </div>
+        <ng-template #LoggedIn>
+          <a routerLink="user">{{123}}</a>
+          <button class="btn btn-primary m-l" type="submit" (click)="logOut()">Sign out</button>
+        </ng-template>
       </form>
     </div>
   </nav>

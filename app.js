@@ -8,6 +8,7 @@ const morgan = require('morgan');
 const app = express();
 const nodemailer = require('nodemailer');
 const jwt = require('jsonwebtoken');
+const passport = require('passport');
 const user = require('./models/user');
 
 mongoose.Promise = global.Promise;
@@ -19,6 +20,9 @@ mongoose.connect(keys.mongoURI, {useNewUrlParser: true}).then(
         console.log('Can not connect to the database' + err)
     }
 );
+
+app.use(passport.initialize())
+require('./middleware/passport')(passport)
 
 module.exports.transporter = nodemailer.createTransport({
     service: 'GMail',
