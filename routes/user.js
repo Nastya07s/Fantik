@@ -5,6 +5,7 @@ const router = express.Router();
 
 //http://localhost:4000/api/user/:userId
 router.get('/', passport.authenticate('jwt', {session: false}),controller.getUser);
-router.get('/myArticles', passport.authenticate('jwt', {session: false}),controller.getMyArticles);
+router.post('/create', passport.authenticate('jwt', {session: false}),controller.createArticle);
+
 
 module.exports = router;

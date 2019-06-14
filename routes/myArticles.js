@@ -3,6 +3,6 @@ const controller = require('../controllers/myArticles');
 const router = express.Router();
 
 //http://localhost:4000/api/myArticles/:userId
-router.get('/:userId', controller.getMyArticles);
+router.get('/', controller.getMyArticles);
 
 module.exports = router;

@@ -19,7 +19,7 @@ export class UserPageComponent implements OnInit {
 
   ngOnInit() {
     // this.authService.getArticles().subscribe((data:Article[])=>this.articles = data);
-    this.userService.getUser().subscribe((user: User)=> {console.log(user);this.user=user});
+    this.userService.getUser().subscribe((user: User)=> this.user=user);
     // this.user = jwt_decoded('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Imx1bmkiLCJ1c2VySWQiOiI1ZDAxM2EyZjRmNDEzNTFmMDRhYjlhYTEiLCJjb25maXJtZWQiOnRydWUsImlhdCI6MTU2MDM2MjMxMiwiZXhwIjoxNTYwMzY1OTEyfQ.S8ONkKidyCh_DU4dauwCVYu30iEScVa7OMQVZHEIXM8');
   }
 

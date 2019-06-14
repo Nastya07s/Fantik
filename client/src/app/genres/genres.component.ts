@@ -14,7 +14,7 @@ export class GenresComponent implements OnInit {
   constructor(private ms: MainService) { }
 
   ngOnInit() {
-    this.ms.getGenres().subscribe((genres: Genre[])=> this.genres = genres);
+    // this.ms.getGenres().subscribe((genres: Genre[])=> this.genres = genres);
   }
 
 }

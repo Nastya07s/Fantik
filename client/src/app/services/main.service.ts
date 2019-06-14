@@ -44,10 +44,10 @@ export class MainService {
       .http
       .get(`${this.uri}`+"/genres");
   }
-
-  getAuthors(){
-    return this
-      .http
-      .get(`${this.uri}`+"/authors");
-  }
+  //
+  // getAuthors(){
+  //   return this
+  //     .http
+  //     .get(`${this.uri}`+"/authors");
+  // }
 }

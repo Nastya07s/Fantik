@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row pull-right">
+  <p>My articles</p>
+    <button class="flex " (click)="redirectToCreate()">+</button>
+</div>
+  <table class="table">
+    <thead>
+    <tr>
+      <td>Name</td>
+      <td>Genre</td>
+      <td>Create Date</td>
+      <td>Update Date</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let article of articles">
+      <td>{{article.name}}</td>
+      <td>{{article.genre}}</td>
+      <td>{{article.createDate | date:'shortDate'}}</td>
+      <td>{{article.updateDate | date:'shortDate'}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

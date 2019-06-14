@@ -16,7 +16,7 @@ export class ChapterComponent implements OnInit {
   constructor(private ms: MainService, private activeRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.chapter  =this.ms.getChapter(this.activeRoute.snapshot.params.chapterId-1);
+    this.chapter = this.ms.getChapter(this.activeRoute.snapshot.params.chapterId-1);
       // .subscribe((data:Chapter)=>{this.chapter = data;});
   }
 

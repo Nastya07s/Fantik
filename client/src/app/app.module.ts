@@ -13,13 +13,14 @@ import {SlicePipe} from './pipes/slice.pipe';
 import {ChapterComponent} from './chapter/chapter.component';
 import {GenresComponent} from './genres/genres.component';
 import {UserPageComponent} from './user-page/user-page.component';
-import {MyArticlesComponent} from './my-articles/my-articles.component';
-import {EditComponent} from './edit/edit.component';
+import {MyArticlesComponent} from './user-page/my-articles/my-articles.component';
+// import {EditComponent} from './edit/edit.component';
 import {RegisterComponent} from './register/register.component';
 import {LoginComponent} from './login/login.component';
 import {MustMatch} from './mustMatch';
 import { ConfirmedEmailComponent } from './confirmed-email/confirmed-email.component'
 import {TokenInterceptor} from "./classes/token.interceptor";
+import { CreateComponent } from './create/create.component';
 
 
 @NgModule({
@@ -33,10 +34,11 @@ import {TokenInterceptor} from "./classes/token.interceptor";
     GenresComponent,
     UserPageComponent,
     MyArticlesComponent,
-    EditComponent,
+    // EditComponent,
     RegisterComponent,
     LoginComponent,
     ConfirmedEmailComponent,
+    CreateComponent,
     // MustMatch,
   ],
   imports: [

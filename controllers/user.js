@@ -1,7 +1,9 @@
 let user = require('../models/user');
 let article = require('../models/article');
+let genre = require('../models/genre');
 const jwt = require('jsonwebtoken');
 const keys = require('../config/keys');
+const errorHandler = require('../utils/errorHandler');
 
 module.exports.getUser = function (req, res) {
     let token = req.headers.authorization;
@@ -31,4 +33,36 @@ module.exports.getMyArticles = function (req, res) {
                 res.json(docs);
             }
         });
+};
+
+module.exports.createArticle= async function (req, res) {
+    let token = req.headers.authorization;
+    if (token.startsWith('Bearer ')) {
+        token = token.slice(7, token.length);
+    }
+    await genre.findOne({name: req.body.genre})
+        .exec(async function (err, doc) {
+            if (err) {
+                console.log(err);
+            } else {
+                chooseGenre = doc._id;
+                const newArticle = new article({
+                    name: req.body.name,
+                    author: jwt.verify(token, keys.jwt).userId,
+                    description: req.body.description,
+                    createDate: new Date(),
+                    updateDate: new Date(),
+                    rating: 0,
+                    chapters: [],
+                    genre: chooseGenre,
+                });
+                try {
+                    await newArticle.save();
+                    res.status(201).json(newArticle);
+                } catch (e) {
+                    errorHandler(res, e)
+                }
+            }
+        });
+
 };

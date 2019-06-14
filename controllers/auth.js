@@ -63,7 +63,7 @@ module.exports.register = async function (req, res) {
             email: req.body.email,
             password: bcrypt.hashSync(password, salt)
         });
-        console.log(user.email);
+        // console.log(user.email);
         const emailToken = jwt.sign(
             {
                 username: req.body.username,
