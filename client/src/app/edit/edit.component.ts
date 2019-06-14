@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {Genre} from "../models/genre";
-import {MainService} from "../services/main.service";
 
 @Component({
   selector: 'app-edit',
@@ -9,12 +7,9 @@ import {MainService} from "../services/main.service";
 })
 export class EditComponent implements OnInit {
 
-  genres: Genre[];
-
-  constructor(private ms: MainService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.ms.getGenres().subscribe((genres: Genre[])=> this.genres = genres);
   }
 
 }

@@ -15,6 +15,7 @@ export class MyArticlesComponent implements OnInit {
 
   public articles: Article[];
   genres: Genre[];
+  activeArticle: Article;
 
   constructor(private articleService: ArticleService,
               private mainService: MainService,
@@ -23,13 +24,20 @@ export class MyArticlesComponent implements OnInit {
 
   ngOnInit() {
     // this.ms.getArticles().subscribe((data:Article[])=>this.articles = data);
-    this.articleService.getMyArticles().subscribe((data:Article[])=> {/*console.log(data);*/this.articles = data});
+    this.articleService.getMyArticles().subscribe((data:Article[])=> this.articles = data);
     this.mainService.getGenres().subscribe((genres: Genre[]) => this.genres = genres);
   }
 
   redirectToCreate(){
-    console.log('123');
     this.router.navigate([this.router.url+"/create"])
+  }
+
+  redirectToEdit(){
+    this.router.navigate([this.router.url+"/edit"])
+  }
+
+  rowSelected(article: Article){
+    this.activeArticle = article;
   }
 
 }

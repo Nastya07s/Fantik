@@ -21,6 +21,7 @@ import {MustMatch} from './mustMatch';
 import { ConfirmedEmailComponent } from './confirmed-email/confirmed-email.component'
 import {TokenInterceptor} from "./classes/token.interceptor";
 import { CreateComponent } from './create/create.component';
+import { EditComponent } from './edit/edit.component';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { CreateComponent } from './create/create.component';
     LoginComponent,
     ConfirmedEmailComponent,
     CreateComponent,
+    EditComponent,
     // MustMatch,
   ],
   imports: [
