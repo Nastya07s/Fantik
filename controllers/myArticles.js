@@ -10,6 +10,7 @@ module.exports.getMyArticles = function (req, res) {
     // console.log(jwt.verify(token,keys.jwt).userId);
     // res.json(jwt.verify(token,keys.jwt).userId);
     article.find({author:{_id: jwt.verify(token,keys.jwt).userId}})
+        .populate('genre','name')
         .exec(function (err, docs) {
             if (err) {
                 console.log(err);

@@ -15,7 +15,7 @@
     <tbody>
     <tr *ngFor="let article of articles">
       <td>{{article.name}}</td>
-      <td>{{article.genre}}</td>
+      <td>{{article.genre.name}}</td>
       <td>{{article.createDate | date:'shortDate'}}</td>
       <td>{{article.updateDate | date:'shortDate'}}</td>
     </tr>

@@ -22,6 +22,7 @@ export class MyArticlesComponent implements OnInit {
               private router: Router, ) { }
 
   ngOnInit() {
+    // this.ms.getArticles().subscribe((data:Article[])=>this.articles = data);
     this.articleService.getMyArticles().subscribe((data:Article[])=> {/*console.log(data);*/this.articles = data});
     this.mainService.getGenres().subscribe((genres: Genre[]) => this.genres = genres);
   }
