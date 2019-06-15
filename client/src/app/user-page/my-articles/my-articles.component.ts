@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 import {ActivatedRoute, Router} from "@angular/router";
 import {Article} from "../../models/article";
@@ -16,27 +16,42 @@ export class MyArticlesComponent implements OnInit {
   public articles: Article[];
   genres: Genre[];
   activeArticle: Article;
+  selected: boolean;
 
   constructor(private articleService: ArticleService,
               private mainService: MainService,
-              private activeRoute:ActivatedRoute,
-              private router: Router, ) { }
+              private activeRoute: ActivatedRoute,
+              private router: Router,) {
+  }
 
   ngOnInit() {
     // this.ms.getArticles().subscribe((data:Article[])=>this.articles = data);
-    this.articleService.getMyArticles().subscribe((data:Article[])=> this.articles = data);
+    this.articleService.getMyArticles().subscribe((data: Article[]) => this.articles = data);
     this.mainService.getGenres().subscribe((genres: Genre[]) => this.genres = genres);
   }
 
-  redirectToCreate(){
-    this.router.navigate([this.router.url+"/create"])
+  redirectToCreate() {
+    this.router.navigate([this.router.url + "/create"])
   }
 
-  redirectToEdit(){
-    this.router.navigate([this.router.url+"/edit"])
+  redirectToEdit() {
+    this.router.navigate([this.router.url + "/edit"])
   }
 
-  rowSelected(article: Article){
+  destroy(articleId: String) {
+
+    this.articleService.destroy(articleId).subscribe((fl: Boolean) => {
+      var index = this.articles.indexOf(this.activeArticle);
+      if (index > -1) {
+        this.articles.splice(index, 1);
+      }
+    }, (error) => {
+      console.log(error);
+    })
+  }
+
+  rowSelected(article: Article) {
+    this.selected = true;
     this.activeArticle = article;
   }
 

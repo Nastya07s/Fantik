@@ -31,6 +31,12 @@ export class MainService {
       .get(`${this.uri}`+"/"+`${articleId}`);
   }
 
+  getArticleUser(){
+    return this
+      .http
+      .get(`${this.uri}`+"/user/edit");
+  }
+
   setArticle(article:Article){
     this.article = article;
   }

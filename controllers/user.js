@@ -10,7 +10,7 @@ module.exports.getUser = function (req, res) {
     if (token.startsWith('Bearer ')) {
         token = token.slice(7, token.length);
     }
-    user.findOne({_id: jwt.verify(token,keys.jwt).userId})
+    user.findOne({_id: jwt.verify(token, keys.jwt).userId})
         .exec(function (err, docs) {
             if (err) {
                 console.log(err);
@@ -25,7 +25,7 @@ module.exports.getMyArticles = function (req, res) {
     if (token.startsWith('Bearer ')) {
         token = token.slice(7, token.length);
     }
-    article.find({author:{_id: jwt.verify(token,keys.jwt).userId}})
+    article.find({author: {_id: jwt.verify(token, keys.jwt).userId}})
         .exec(function (err, docs) {
             if (err) {
                 console.log(err);
@@ -35,7 +35,7 @@ module.exports.getMyArticles = function (req, res) {
         });
 };
 
-module.exports.createArticle= async function (req, res) {
+module.exports.createArticle = async function (req, res) {
     let token = req.headers.authorization;
     if (token.startsWith('Bearer ')) {
         token = token.slice(7, token.length);
@@ -64,5 +64,29 @@ module.exports.createArticle= async function (req, res) {
                 }
             }
         });
+};
 
+module.exports.getArticleUser = function (req, res) {
+    article.findOne({"_id": req.params.articleId}, function (err, doc) {
+        if (err) {
+            console.log(err);
+        } else {
+            res.json(doc);
+        }
+    })
+};
+
+module.exports.destroyArticle = function (req, res) {
+    article.deleteOne({"_id": req.body.articleId}, function (err, result) {
+
+        if (err) {
+
+            console.log("error query");
+            res.json({fl: false});
+        } else {
+
+            console.log(result);
+            res.json({fl: true});
+        }
+    });
 };

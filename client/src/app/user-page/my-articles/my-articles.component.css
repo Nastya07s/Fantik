@@ -2,6 +2,11 @@ tr {
   border: 1px;
 }
 
-tr.active {
-  background-color: green;
+.button {
+  opacity: 0;
 }
+
+tr:hover .button {
+  opacity: 1;
+}
+
