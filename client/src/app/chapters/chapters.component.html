@@ -1,7 +1,12 @@
 <div class="m-l-r">
   <ul class="list-group">
+    <p class="mb-1 name-article">{{article.name}}</p>
     <li class="list-group-item" *ngFor="let chapter of chapters; let i = index">
-      <a [routerLink] = "['/',article._id,i+1]">Глава {{i+1}} - {{chapter.name}}</a>
+      <a [routerLink] = "['/',article._id,i+1]">Chapter {{i+1}} - {{chapter.name}}</a>
+    </li>
+
+    <li class="list-group-item"  *ngIf="isAuthenticated && article.author.username===user.username">
+      <a [routerLink] = "['/user/addchapter/',article._id]" class="disabled">+ New Chapter</a>
     </li>
   </ul>
 </div>

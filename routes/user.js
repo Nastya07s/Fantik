@@ -14,6 +14,8 @@ router.post('/create',
     passport.authenticate('jwt', {session: false}),controller.createArticle);
 router.get('/edit/:articleId',
     passport.authenticate('jwt', {session: false}),controller.getArticleUser);
+router.post('/addchapter/:articleId',
+    passport.authenticate('jwt', {session: false}),controller.createChapter);
 
 
 module.exports = router;

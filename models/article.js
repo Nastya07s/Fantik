@@ -3,7 +3,8 @@ const Schema = mongoose.Schema;
 
 const articleSchema = new Schema({
     name: {
-        type: String
+        type: String,
+        unique: true
     },
     author: {
         ref: 'users',
@@ -23,6 +24,9 @@ const articleSchema = new Schema({
     },
     chapters: [{
         img: {
+            type: String
+        },
+        name: {
             type: String
         },
         text: {

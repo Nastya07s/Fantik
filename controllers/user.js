@@ -40,7 +40,7 @@ module.exports.createArticle = async function (req, res) {
     if (token.startsWith('Bearer ')) {
         token = token.slice(7, token.length);
     }
-    await genre.findOne({name: req.body.genre})
+    genre.findOne({name: req.body.genre})
         .exec(async function (err, doc) {
             if (err) {
                 console.log(err);
@@ -56,7 +56,7 @@ module.exports.createArticle = async function (req, res) {
                     genre: doc._id,
                 });
                 try {
-                    await newArticle.save();
+                    newArticle.save();
                     res.status(201).json(newArticle);
                 } catch (e) {
                     errorHandler(res, e)
@@ -67,32 +67,29 @@ module.exports.createArticle = async function (req, res) {
 
 module.exports.getArticleUser = function (req, res) {
     article.findOne({"_id": req.params.articleId})
-        .populate('genre','name')
+        .populate('genre', 'name')
         .exec(function (err, doc) {
-        if (err) {
-            console.log(err);
-        } else {
-            res.json(doc);
-        }
-    })
+            if (err) {
+                console.log(err);
+            } else {
+                res.json(doc);
+            }
+        })
 };
 
 module.exports.destroyArticle = function (req, res) {
     article.deleteOne({"_id": req.body.articleId}, function (err, result) {
-
         if (err) {
-
             console.log("error query");
             res.json({fl: false});
         } else {
-
             console.log(result);
             res.json({fl: true});
         }
     });
 };
 
-module.exports.updateArticle = async function (req,res){
+module.exports.updateArticle = async function (req, res) {
     try {
         // const newGenre:{};
         genre.findOne({name: req.body.genre}).exec(async function (err, doc) {
@@ -110,8 +107,29 @@ module.exports.updateArticle = async function (req,res){
         });
         // console.log(newGenre);
 
+    } catch (e) {
+        errorHandler(res, e)
     }
-    catch (e){
-     errorHandler(res,e)
+};
+
+module.exports.createChapter = async function (req, res) {
+    try {
+        const newChapter = {
+            name: req.body.name,
+            text: req.body.text,
+        };
+        console.log(newChapter.name);
+        const newArticle = await article.findOneAndUpdate({_id: req.params.articleId}, {
+            "$set": {
+                updateDate: new Date(),
+            },
+            "$push": {
+                chapters: newChapter,
+            },
+        }, {new: true});
+        console.log(newArticle);
+        res.status(200).json(newChapter);
+    } catch (e) {
+        errorHandler(res, e)
     }
 };

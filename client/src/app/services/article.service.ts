@@ -3,6 +3,7 @@ import {environment} from "../../environments/environment";
 import {Article} from "../models/article";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {Chapter} from "../models/Chapter";
 
 // import 'rxjs/add/operator/map';
 
@@ -23,7 +24,7 @@ export class ArticleService {
       ;
   }
 
-  createArticle(article): Observable<Article> {
+  createArticle(article: Article): Observable<Article> {
     return this.http.post<Article>(`${this.uri}` + '/user/create', article)
   }
 
@@ -33,5 +34,9 @@ export class ArticleService {
 
   updateArticle(articleId: String, article: Article): Observable<Article> {
     return this.http.patch<Article>(`${this.uri}/user/update/${articleId}`, article)
+  }
+
+  createChapter(articleId: String,chapter: Chapter): Observable<Chapter>{
+    return this.http.post<Chapter>(`${this.uri}` + '/user/appchapter/'+`${articleId}`, chapter)
   }
 }

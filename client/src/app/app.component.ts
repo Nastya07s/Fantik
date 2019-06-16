@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthService} from "./services/auth.service";
 import {Router} from "@angular/router";
+import {UserService} from "./services/user.service";
+import {User} from "./models/user";
 
 @Component({
   selector: 'app-root',
@@ -10,9 +12,11 @@ import {Router} from "@angular/router";
 export class AppComponent implements OnInit {
   title = 'ficbook';
   isAuthenticated: boolean;
+  user: User;
 
   constructor(private authService: AuthService,
-              private router: Router,) {
+              private router: Router,
+              private userService: UserService) {
   }
 
   ngOnInit() {
@@ -20,6 +24,7 @@ export class AppComponent implements OnInit {
     if (potentialToken !== null) {
       this.authService.setToken(potentialToken);
     }
+    this.userService.getUser().subscribe((user: User)=> this.user=user);
     this.isAuthenticated = this.authService.isAuthenticated();
   }
 

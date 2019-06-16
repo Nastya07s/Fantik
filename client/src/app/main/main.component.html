@@ -1,24 +1,24 @@
 <div class="list-group  m-l-r">
   <p class="font-weight-bold font-italic title_list"> Popular:</p>
-  <div class="list-group-item" *ngFor="let article of articles">
+  <div class="list-group-item m-l-r" *ngFor="let article of articles | slice:0:5">
     <div class="d-flex w-100 justify-content-between">
       <a [routerLink]="['/',article._id]" class="mb-1 name-article">{{article.name}}</a>
     </div>
-    <dl class="dl-m-l-r">
+    <dl class="dl">
       <dt>Genre: </dt>
-      <dd><a href='#'> {{article.genre.name}}</a></dd>
+      <dd>{{article.genre.name}}</dd>
     </dl>
     <p class="mb-1">{{article.description}}</p>
-    <small>Author: <a href="#">{{article.author.username}}</a></small>
+    <small>Author: {{article.author.username}}</small>
   </div>
 </div>
 <div class="list-group  m-l-r">
   <p class="font-weight-bold font-italic title_list"> Last updates:</p>
-  <div class="list-group-item" *ngFor="let article of articles | sort">
+  <div class="list-group-item m-l-r" *ngFor="let article of articles | sort |slice:0:5">
     <div class="d-flex w-100 justify-content-between">
       <a [routerLink]="['/',article._id]" class="mb-1 name-article">{{article.name}}</a>
     </div>
-    <dl class="dl-m-l-r">
+    <dl class="dl">
       <dt>Genre:</dt>
       <dd><a href='#'>{{article.genre.name}}</a></dd>
     </dl>

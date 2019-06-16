@@ -1,5 +1,6 @@
 import {NgModule} from "@angular/core";
-import {Router, RouterModule, Routes} from "@angular/router";
+import {RouterModule, Routes} from "@angular/router";
+
 import {MainComponent} from "./main/main.component";
 import {ChaptersComponent} from "./chapters/chapters.component";
 import {ChapterComponent} from "./chapter/chapter.component";
@@ -10,6 +11,7 @@ import {ConfirmedEmailComponent} from "./confirmed-email/confirmed-email.compone
 import {AuthGuard} from "./classes/auth.guard";
 import {CreateComponent} from "./create/create.component";
 import {EditComponent} from "./edit/edit.component";
+import {AddChapterComponent} from "./add-chapter/add-chapter.component";
 
 const routes: Routes = [
 
@@ -20,6 +22,7 @@ const routes: Routes = [
   {path: 'user', component: UserPageComponent, canActivate: [AuthGuard]},
   {path: 'user/edit/:articleId', component: EditComponent, canActivate: [AuthGuard]},
   {path: 'user/create', component: CreateComponent, canActivate: [AuthGuard]},
+  {path: 'user/addchapter/:articleId', component: AddChapterComponent, canActivate: [AuthGuard]},
   {path: ':articleId/:chapterId', component: ChapterComponent},
   {path: ':articleId', component: ChaptersComponent},
   {path: '', component: MainComponent},

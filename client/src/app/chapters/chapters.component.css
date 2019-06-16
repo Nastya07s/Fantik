@@ -1,4 +1,10 @@
+.name-article{
+  margin-left: 5px;
+  font-size: 18.5px;
+}
+
 .m-l-r{
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  /*margin-bottom: 5px;*/
 }

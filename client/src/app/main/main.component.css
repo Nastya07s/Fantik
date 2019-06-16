@@ -1,4 +1,4 @@
-.dl-m-l-r{
+.dl{
   margin-left: 0px;
   margin-bottom: 0px;
   display: flex;
@@ -11,4 +11,10 @@
 }
 .name-article{
   font-size: 18.5px;
+}
+
+.m-l-r{
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
 }

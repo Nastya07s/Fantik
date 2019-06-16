@@ -19,7 +19,7 @@
         *ngFor="let article of articles"
         (click)="rowSelected(article)"
     >
-      <td><a href="/">{{article.name}}</a></td>
+      <td><a [routerLink]="['/',article._id]">{{article.name}}</a></td>
       <td>{{article.genre.name}}</td>
       <td>{{article.chapters.length}}</td>
       <td>{{article.createDate | date:'shortDate'}}</td>
