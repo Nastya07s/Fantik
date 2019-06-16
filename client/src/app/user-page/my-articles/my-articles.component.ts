@@ -34,8 +34,8 @@ export class MyArticlesComponent implements OnInit {
     this.router.navigate([this.router.url + "/create"])
   }
 
-  redirectToEdit() {
-    this.router.navigate([this.router.url + "/edit"])
+  redirectToEdit(articleId: String) {
+    this.router.navigate([this.router.url + "/edit/"+`${articleId}`])
   }
 
   destroy(articleId: String) {

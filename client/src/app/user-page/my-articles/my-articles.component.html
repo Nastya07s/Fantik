@@ -24,7 +24,7 @@
       <td>{{article.chapters.length}}</td>
       <td>{{article.createDate | date:'shortDate'}}</td>
       <td>{{article.updateDate | date:'shortDate'}}
-        <button class="button" (click)="redirectToEdit()">Edit</button>
+        <button class="button" (click)="redirectToEdit(article._id)">Edit</button>
         <button class="button" (click)="destroy(article._id)">Delete</button>
       </td>
     </tr>

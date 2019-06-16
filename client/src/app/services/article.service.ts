@@ -1,8 +1,9 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {environment} from "../../environments/environment";
 import {Article} from "../models/article";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
+
 // import 'rxjs/add/operator/map';
 
 @Injectable({
@@ -15,18 +16,22 @@ export class ArticleService {
   constructor(private http: HttpClient) {
   }
 
-  getMyArticles(){
+  getMyArticles() {
     return this
       .http
-      .get(`${this.uri}`+'/myArticles')
+      .get(`${this.uri}` + '/myArticles')
       ;
   }
 
-  createArticle(article): Observable<Article>{
-    return this.http.post<Article>(`${this.uri}`+'/user/create',article)
+  createArticle(article): Observable<Article> {
+    return this.http.post<Article>(`${this.uri}` + '/user/create', article)
   }
 
-  destroy(articleId: String): Observable<Boolean>{
-    return this.http.post<Boolean>(`${this.uri}`+'/user/destroy',{articleId})
+  destroy(articleId: String): Observable<Boolean> {
+    return this.http.post<Boolean>(`${this.uri}` + '/user/destroy', {articleId})
+  }
+
+  updateArticle(articleId: String, article: Article): Observable<Article> {
+    return this.http.patch<Article>(`${this.uri}/user/update/${articleId}`, article)
   }
 }

@@ -27,10 +27,14 @@ export class CreateComponent implements OnInit {
         description: new FormControl(null),
         genre: new FormControl(null),
       });
+    this.form.patchValue({
+      genre: 'Detective'
+    })
 
   }
 
   createNewArticle() {
+    // console.log(this.form.value);
     this.articleService.createArticle(this.form.value).subscribe(
       ()=>{this.router.navigate(['/user'])});
   }

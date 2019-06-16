@@ -3,8 +3,6 @@
       (ngSubmit)="onSubmit()"
       style="width: 23rem;"
 >
-  <!--  <div class="row">-->
-  <!--    <div class="col-md-3 mx-auto">-->
   <div class="card-body">
     <h3 class="card-title">Sign-up</h3>
     <fieldset>
@@ -54,14 +52,14 @@
       <div class="form-group has-danger">
         <label for="password">Password</label>
         <input #password
-          formControlName="password"
-          class="form-control"
-          placeholder="Password"
-          name="password"
-          type="password"
-          id="password"
+               formControlName="password"
+               class="form-control"
+               placeholder="Password"
+               name="password"
+               type="password"
+               id="password"
 
-          [ngClass]="{'is-invalid':form.get('password').invalid && form.get('password').touched}"
+               [ngClass]="{'is-invalid':form.get('password').invalid && form.get('password').touched}"
         >
         <span
           class="helper-text text-danger"
@@ -79,14 +77,14 @@
       <div class="form-group has-danger">
         <label for="confirmPassword">Confirm password</label>
         <input #confirmPassword
-          formControlName="confirmPassword"
-          class="form-control"
-          placeholder="Confirm password"
-          name="confirmPassword"
-          type="password"
-          id="confirmPassword"
+               formControlName="confirmPassword"
+               class="form-control"
+               placeholder="Confirm password"
+               name="confirmPassword"
+               type="password"
+               id="confirmPassword"
 
-          [ngClass]="{'is-invalid':form.get('confirmPassword').invalid && form.get('confirmPassword').touched}"
+               [ngClass]="{'is-invalid':form.get('confirmPassword').invalid && form.get('confirmPassword').touched}"
         >
         <span
           class="helper-text text-danger"

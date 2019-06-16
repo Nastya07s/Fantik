@@ -44,7 +44,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
   onSubmit() {
     // if (this.form.invalid) {
     //   return;
-    // }
+      // }
     this.form.disable();
     this.aSub = this.authService.register(this.form.value).subscribe(
       () => {

@@ -9,6 +9,7 @@ import {Router} from "@angular/router";
 })
 export class AppComponent implements OnInit {
   title = 'ficbook';
+  isAuthenticated: boolean;
 
   constructor(private authService: AuthService,
               private router: Router,) {
@@ -19,7 +20,7 @@ export class AppComponent implements OnInit {
     if (potentialToken !== null) {
       this.authService.setToken(potentialToken);
     }
-    const isAuthenticated = this.authService.isAuthenticated();
+    this.isAuthenticated = this.authService.isAuthenticated();
   }
 
 

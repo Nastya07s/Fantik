@@ -45,7 +45,6 @@ module.exports.createArticle = async function (req, res) {
             if (err) {
                 console.log(err);
             } else {
-                chooseGenre = doc._id;
                 const newArticle = new article({
                     name: req.body.name,
                     author: jwt.verify(token, keys.jwt).userId,
@@ -54,7 +53,7 @@ module.exports.createArticle = async function (req, res) {
                     updateDate: new Date(),
                     rating: 0,
                     chapters: [],
-                    genre: chooseGenre,
+                    genre: doc._id,
                 });
                 try {
                     await newArticle.save();
@@ -67,7 +66,9 @@ module.exports.createArticle = async function (req, res) {
 };
 
 module.exports.getArticleUser = function (req, res) {
-    article.findOne({"_id": req.params.articleId}, function (err, doc) {
+    article.findOne({"_id": req.params.articleId})
+        .populate('genre','name')
+        .exec(function (err, doc) {
         if (err) {
             console.log(err);
         } else {
@@ -89,4 +90,28 @@ module.exports.destroyArticle = function (req, res) {
             res.json({fl: true});
         }
     });
+};
+
+module.exports.updateArticle = async function (req,res){
+    try {
+        // const newGenre:{};
+        genre.findOne({name: req.body.genre}).exec(async function (err, doc) {
+            if (err) {
+                console.log(err);
+            } else {
+                const newArticle = await article.findOneAndUpdate({_id: req.params.articleId}, {
+                    name: req.body.name,
+                    description: req.body.description,
+                    genre: doc._id,
+                    updateDate: new Date(),
+                }, {new: true});
+                res.status(200).json(newArticle)
+            }
+        });
+        // console.log(newGenre);
+
+    }
+    catch (e){
+     errorHandler(res,e)
+    }
 };

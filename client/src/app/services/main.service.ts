@@ -31,10 +31,10 @@ export class MainService {
       .get(`${this.uri}`+"/"+`${articleId}`);
   }
 
-  getArticleUser(){
+  getArticleUser(articleId: String){
     return this
       .http
-      .get(`${this.uri}`+"/user/edit");
+      .get(`${this.uri}`+"/user/edit/"+`${articleId}`);
   }
 
   setArticle(article:Article){

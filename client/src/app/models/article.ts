@@ -9,5 +9,8 @@ export class Article {
   updateDate:  Date;
   rating:  Number;
   chapters:  Chapter[];
-  genre:  String;
+  genre:  {
+    _id: String,
+    name: String,
+  };
 }
