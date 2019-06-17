@@ -1,10 +1,14 @@
 .name-article{
   margin-left: 5px;
-  font-size: 18.5px;
+  text-align: center;
 }
 
 .m-l-r{
   margin-left: 5px;
   margin-right: 5px;
   /*margin-bottom: 5px;*/
+}
+.color a{
+  color: #9E9E9E;
+
 }

@@ -1,0 +1,25 @@
+.title{
+  text-align: center;
+  margin-top: 3px;
+  font-size: 20px;
+}
+.user-text{
+  height:100px;
+  width:100px;
+  background-color: #BDBDBD;
+  border:1px;
+  font-size: 52px;
+  color: #9E9E9E;
+  display: inline-block;
+  margin-right: 50px;
+  margin-left: 5px;
+}
+.user-inf{
+  font-size: 17px;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.flex{
+  display: flex;
+}

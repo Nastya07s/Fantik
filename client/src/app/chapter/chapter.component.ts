@@ -12,12 +12,15 @@ import {Chapter} from "../models/Chapter";
 export class ChapterComponent implements OnInit {
 
   chapter:Chapter;
+  article:Article;
+  numberChapter: Number;
 
   constructor(private ms: MainService, private activeRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.chapter = this.ms.getChapter(this.activeRoute.snapshot.params.chapterId-1);
-      // .subscribe((data:Chapter)=>{this.chapter = data;});
+    this.ms.getArticle(this.activeRoute.snapshot.params.articleId).subscribe((data:Article)=>this.article=data);
+    this.numberChapter=this.activeRoute.snapshot.params.chapterId;
   }
 
 }

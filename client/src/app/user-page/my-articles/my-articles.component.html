@@ -1,9 +1,9 @@
 <div class="container">
-  <div class="row pull-right">
-  <p>My articles</p>
-<!--    <button class="flex " (click)="redirectToEdit()">Edit</button>-->
-    <button class="flex " (click)="redirectToCreate()">+</button>
-</div>
+  <div class="pull-right">
+    <p class="title">My articles</p>
+    <!--    <button class="flex " (click)="redirectToEdit()">Edit</button>-->
+    <button class="plus" (click)="redirectToCreate()"><i class="fas fa-plus"></i></button>
+  </div>
   <table class="table">
     <thead>
     <tr>
@@ -11,21 +11,30 @@
       <td>Genre</td>
       <td>Count chapters</td>
       <td>Create Date</td>
-      <td>Update Date</td>
+      <td class="flex">Update Date</td>
     </tr>
     </thead>
     <tbody>
     <tr
-        *ngFor="let article of articles"
-        (click)="rowSelected(article)"
+      *ngFor="let article of articles"
+      (click)="rowSelected(article)"
     >
       <td><a [routerLink]="['/',article._id]">{{article.name}}</a></td>
       <td>{{article.genre.name}}</td>
       <td>{{article.chapters.length}}</td>
       <td>{{article.createDate | date:'shortDate'}}</td>
-      <td>{{article.updateDate | date:'shortDate'}}
-        <button class="button" (click)="redirectToEdit(article._id)">Edit</button>
-        <button class="button" (click)="destroy(article._id)">Delete</button>
+      <td class="flex">{{article.updateDate | date:'shortDate'}}
+        <ul class="menu">
+          <li><a href=#>&#8942;</a>
+            <ul class="submenu">
+              <li>
+                <button class="m-1" (click)="redirectToEdit(article._id)">Edit</button>
+
+                <button (click)="destroy(article._id)">Delete</button>
+              </li>
+            </ul>
+          </li>
+        </ul>
       </td>
     </tr>
     </tbody>

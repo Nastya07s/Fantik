@@ -1,4 +1,13 @@
 <div class="container center-block">
-  <h1>{{ user.username }}</h1>
-<app-my-articles></app-my-articles>
+  <div class="card m-2">
+    <p class="card-title title">User profile</p>
+    <div class="card-body flex">
+      <div class="user-text">user</div>
+      <div class="user-inf">
+        <p >Name: {{user.username}}</p>
+        <p >E-mail: {{user.email}}</p>
+      </div>
+    </div>
+  </div>
+  <app-my-articles></app-my-articles>
 </div>

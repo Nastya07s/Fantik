@@ -1,4 +1,5 @@
 <div class="container">
+  <h2>Edit article</h2>
   <form [formGroup]="form"
         (ngSubmit)="editArticle()"
     >
@@ -27,6 +28,6 @@
         <option *ngFor="let genre of genres">{{genre.name}}</option>
       </select>
     </div>
-    <button type="submit" class="btn btn-primary" (click)="editArticle()">Edit article</button>
+    <button type="submit" class="btn btn-primary" (click)="editArticle()">Edit</button>
   </form>
 </div>

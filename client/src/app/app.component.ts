@@ -25,13 +25,14 @@ export class AppComponent implements OnInit {
       this.authService.setToken(potentialToken);
     }
     this.userService.getUser().subscribe((user: User)=> this.user=user);
-    this.isAuthenticated = this.authService.isAuthenticated();
+
   }
 
 
 
   logOut() {
     this.authService.logout();
+    this.isAuthenticated = this.authService.isAuthenticated();
     this.router.navigate(['/login']);
   }
 }

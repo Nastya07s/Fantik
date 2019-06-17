@@ -2,11 +2,6 @@
   margin-left: 10px;
 }
 
-.footer_block {
-  display: flex;
-  justify-content: space-around
-}
-
 header {
   position: fixed;
   width: 100%;
@@ -15,7 +10,8 @@ header {
 
 main {
   margin-top: 60px;
-  height: 100%
+  /*flex-grow: 1;*/
+  min-height: calc(100% - 60px);
 }
 
 .footer_block {
