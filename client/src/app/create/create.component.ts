@@ -41,10 +41,12 @@ export class CreateComponent implements OnInit {
   }
 
   createNewArticle() {
-    // console.log(this.form.value);
+    console.log(this.form.value);
     this.articleService.createArticle(this.form.value).subscribe(
-      () => {
-        this.router.navigate(['/user/create/', this.article._id,'/addchapter/'])
+      (data: Article) => {
+        this.article=data;
+        console.log(this.article);
+        this.router.navigate(['/user/addchapter/'+`${this.article._id}`])
       });
   }
 
